@@ -11,3 +11,5 @@ useradd -m -G wheel -s /bin/bash jacob
 passwd jacob
 
 su -c "curl -s https://raw.githubusercontent.com/JacobStephenson97/ansible/main/setup.yml >> /home/jacob/setup.yml" jacob
+
+ansible-playbook /home/jacob/setup.yml
