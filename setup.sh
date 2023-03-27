@@ -13,6 +13,6 @@ passwd jacob
 
 su - jacob
 
-curl -s https://raw.githubusercontent.com/JacobStephenson97/ansible/main/setup.yml >> ~/setup.yml
+curl -s https://raw.githubusercontent.com/JacobStephenson97/ansible/main/setup.yml >> /home/jacob/setup.yml
+chown jacob /home/jacob/setup.yml
 
-ansible-playbook setup.yml
