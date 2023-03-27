@@ -21,14 +21,26 @@
   - name: Make bin/downloads
     ansible.builtin.shell: mkdir bin Downloads
   - name: Clone yay
-    become: yes
     become_user: jacob
     ansible.builtin.git: 
       repo: 'https://aur.archlinux.org/yay.git'
       dest: /home/jacob/yay
   - name: Install yay
-    become: yes
     become_user: jacob
     ansible.builtin.shell: cd yay && makepkg -si --noconfirm && rm -rf ~/yay
-    
+  - name: Run oh-my-zsh install script
+    script:
+      cmd: "curl -fsSL http://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -"
+  - name: Install zsh-theme-powerlevel10k-git package
+    hosts: all
+    become_user: jacob
+    tasks:
+      - name: Install zsh-theme-powerlevel10k-git package
+        ansible.builtin.package:
+          name: zsh-theme-powerlevel10k-git
+          state: present
+  
+  - name: Get zsh dotfile
+    become_user: jacob
+    ansible.builtin.shell: "curl -s https://raw.githubusercontent.com/JacobStephenson97/.dotfiles/main/.zshrc > ~/.zshrc"
       
