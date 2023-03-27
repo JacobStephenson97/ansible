@@ -10,7 +10,10 @@ echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 useradd -m -G wheel -s /bin/bash jacob
 passwd jacob
 su jacob
+cd ~
 
-#pacman -S ansible --noconfirm
+sudo pacman -S ansible --noconfirm
 
+curl -s https://raw.githubusercontent.com/JacobStephenson97/ansible/main/setup.yml >> setup.yml
 
+ansible-playbook setup.yml
