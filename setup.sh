@@ -3,9 +3,8 @@ passwd
 pacman-key --init 
 pacman-key --populate
 pacman -Syu --noconfirm
-pacman -S archlinux-keyring --noconfirm
-pacman -S sudo --noconfirm
-pacman -S ansible --noconfirm
+pacman -S --noconfirm archlinux-keyring 
+pacman -S --needed --noconfirm base-devel git sudo ansible
 
 echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 useradd -m -G wheel -s /bin/bash jacob
