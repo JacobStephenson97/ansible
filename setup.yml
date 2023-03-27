@@ -14,10 +14,15 @@
       extra_args: --needed
   - name: Make bin/downloads
     ansible.builtin.shell: mkdir bin Downloads
-  - name: Clone and install yay
+  - name: Clone yay
     become: yes
     become_user: jacob
     ansible.builtin.git: 
       repo: 'https://aur.archlinux.org/yay.git'
       dest: /home/jacob/yay
+  - name: Install yay
+    become: yes
+    become_user: jacob
+    ansible.builtin.shell: cd yay && makepkg -si && rm -rf ~/yay
+    
       
