@@ -34,13 +34,13 @@
   - name: Install zsh-theme-powerlevel10k-git package
     become_user: jacob
     ansible.builtin.shell: yay -S --noconfirm zsh-theme-powerlevel10k-git
-    #May not be necessary
-  - name: Export correct Term
-    ansible.builtin.shell: "export TERM=xterm-256color"
   - name: Get zsh dotfile
     become_user: jacob
-    ansible.builtin.shell: "curl -s https://raw.githubusercontent.com/JacobStephenson97/.dotfiles/main/.zshrc > ~/.zshrc"
+    ansible.builtin.shell: curl -s https://raw.githubusercontent.com/JacobStephenson97/.dotfiles/main/.zshrc > ~/.zshrc
   - name: Get p10k dotfile
     become_user: jacob
-    ansible.builtin.shell: "curl -s https://raw.githubusercontent.com/JacobStephenson97/.dotfiles/main/.p10k.zsh > ~/.p10k.zsh"
+    ansible.builtin.shell: curl -s https://raw.githubusercontent.com/JacobStephenson97/.dotfiles/main/.p10k.zsh > ~/.p10k.zsh
+  #May not be necessary
+  - name: Export correct Term
+    ansible.builtin.shell: echo "export COLORTERM=truecolor" >> .zshrc
       
