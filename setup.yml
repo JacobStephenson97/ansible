@@ -1,17 +1,23 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install zsh
+  - name: Install Basic Packages
     community.general.pacman:
-      name: zsh
-  - name: Install dev apps
-    community.general.pacman:
-      name: base-devel
-      extra_args: --needed
-  - name: Install git
-    community.general.pacman:
-      name: git
-      extra_args: --needed
+      name:
+        - zsh
+        - github-cli
+        - fzf
+        - pv
+        - clang
+        - llvm
+        - rust
+        - lm_sensors
+        - psutils
+        - neofetch
+        - htop
+        - bashtop
+        - imagemagick
+        - jq
   - name: Make bin/downloads
     ansible.builtin.shell: mkdir bin Downloads
   - name: Clone yay
