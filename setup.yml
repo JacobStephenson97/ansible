@@ -29,7 +29,8 @@
     become_user: jacob
     ansible.builtin.shell: cd yay && makepkg -si --noconfirm && rm -rf ~/yay
   - name: Run oh-my-zsh install script
-    ansible.builtin.shell: source <(curl -fsSL http://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
+    become_user: jacob
+    ansible.builtin.shell: source <(curl -fsSL http://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --noconfirm
   - name: Install zsh-theme-powerlevel10k-git package
     become_user: jacob
     ansible.builtin.shell: yay -S --noconfirm zsh-theme-powerlevel10k-git
