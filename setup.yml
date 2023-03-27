@@ -1,0 +1,14 @@
+- hosts: localhost
+  become: true
+  tasks:
+  - name: Install zsh
+    community.general.pacman:
+      name: zsh
+  - name: Install dev apps
+    community.general.pacman:
+      name: base-devel
+      extra_args: --needed
+  - name: Install git
+    community.general.pacman:
+      name: git
+      extra_args: --needed
