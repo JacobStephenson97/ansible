@@ -18,6 +18,12 @@
         - bashtop
         - imagemagick
         - jq
+        - bat
+        - ripgrep
+        - bat-extras
+        - lsd
+        - figlet
+        - tmux
   - name: Make bin/downloads
     ansible.builtin.shell: mkdir bin Downloads
   - name: Clone yay
@@ -62,4 +68,12 @@
   #May not be necessary
   - name: Export correct Term
     ansible.builtin.shell: echo "export TERM=xterm-256color" >> .zshrc
+    
+    
+  #TMUX
+  - name: Clone yay
+    become_user: jacob
+    ansible.builtin.git: 
+      repo: 'https://github.com/tmux-plugins/tpm'
+      dest: ~/.tmux/plugins/tpm
       
