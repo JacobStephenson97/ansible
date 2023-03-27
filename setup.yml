@@ -12,3 +12,9 @@
     community.general.pacman:
       name: git
       extra_args: --needed
+  - name: Make bin/downloads
+    ansible.builtin.shell: mkdir bin Downloads
+  - name: Clone and install yay
+    ansible.builtin.git: 
+      repo: 'https://aur.archlinux.org/yay.git'
+      dest: ~/yay
