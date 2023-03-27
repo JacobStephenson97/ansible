@@ -23,6 +23,6 @@
   - name: Install yay
     become: yes
     become_user: jacob
-    ansible.builtin.shell: cd yay && makepkg -si && rm -rf ~/yay
+    ansible.builtin.shell: cd yay && makepkg -si --noconfirm && rm -rf ~/yay
     
       
