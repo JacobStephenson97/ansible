@@ -32,9 +32,7 @@
     ansible.builtin.shell: "curl -fsSL http://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -"
   - name: Install zsh-theme-powerlevel10k-git package
     become_user: jacob
-    ansible.builtin.package:
-      name: zsh-theme-powerlevel10k-git
-      state: present
+    ansible.builtin.shell: yay -S --noconfirm zsh-theme-powerlevel10k-git
   - name: Get zsh dotfile
     become_user: jacob
     ansible.builtin.shell: "curl -s https://raw.githubusercontent.com/JacobStephenson97/.dotfiles/main/.zshrc > ~/.zshrc"
