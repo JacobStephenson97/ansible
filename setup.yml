@@ -17,4 +17,4 @@
   - name: Clone and install yay
     ansible.builtin.git: 
       repo: 'https://aur.archlinux.org/yay.git'
-      dest: ~/yay
+      dest: /home/jacob/yay
