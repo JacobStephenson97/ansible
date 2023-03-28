@@ -7,11 +7,11 @@
   tags:
     - ssh
     - dotfiles
-- name: copy pub key
+- name: Install ssh key
   become_user: jacob
   copy:
-    src: "{{ source_key }}"
-    dest: "{{ dest_key }}"
+    src: "{{ github_key }}"
+    dest: "{{ github_key }}"
     mode: 0600
   tags:
     - ssh
