@@ -2,7 +2,7 @@
   become: true
   vars: 
     source_key: "home/jacob/.ssh/github_com_ed25519"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/github_com_ed25519"
+    dest_key: "home/jacob/.ssh/github_com_ed25519"
   tasks:
   - name: Install Basic Packages
     community.general.pacman:
@@ -41,19 +41,19 @@
     become_user: jacob
     shell: |
       mv ~/keys/.ssh ./
-  - name: Ensure .ssh directory exists.
-    become_user: root
-    file:
-      dest: "{{ dest_key | dirname }}"
-      mode: 0700
-      state: directory
+#   - name: Ensure .ssh directory exists.
+#     become_user: root
+#     file:
+#       dest: "{{ dest_key | dirname }}"
+#       mode: 0700
+#       state: directory
 
-  - name: Install ssh key
-    become_user: root
-    copy:
-      src: "{{ source_key }}"
-      dest: "{{ dest_key }}"
-      mode: 0600
+#   - name: Install ssh key
+#     become_user: root
+#     copy:
+#       src: "{{ source_key }}"
+#       dest: "{{ dest_key }}"
+#       mode: 0600
 
   - name: Set authorized key took from file
     authorized_key:
