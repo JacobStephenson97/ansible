@@ -1,5 +1,4 @@
 - name: Ensure .ssh directory exists.
-  become_user: jacob
   file:
     dest: "{{ dest_key | dirname }}"
     mode: 0700
@@ -8,7 +7,6 @@
     - ssh
     - dotfiles
 - name: Install ssh key
-  become_user: jacob
   copy:
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
@@ -31,7 +29,6 @@
     - ssh
     - dotfiles
 - name: Set authorized key took from file
-  become_user: jacob
   authorized_key:
     user: jacob
     state: present

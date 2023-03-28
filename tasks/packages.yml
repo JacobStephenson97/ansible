@@ -32,16 +32,12 @@
     - core
 
 - name: Make folders
-  become: true
-  become_user: jacob
   ansible.builtin.shell: mkdir ~/bin ~/downloads ~/.dotfiles
   ignore_errors: true
   tags:
     - core
 
 - name: Clone yay
-  become_user: jacob
-  become: true
   ansible.builtin.git:
     repo: "https://aur.archlinux.org/yay.git"
     dest: ~/yay
@@ -49,9 +45,7 @@
     - packages
     - core
 - name: Install yay
-  become_user: jacob
-  become: true
-  ansible.builtin.shell: cd ~/yay && makepkg -si --noconfirm && rm -rf ~/yay
+  ansible.builtin.shell: cd ~/yay && makepkg -si && rm -rf ~/yay
   tags:
     - packages
     - core

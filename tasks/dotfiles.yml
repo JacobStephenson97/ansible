@@ -1,5 +1,4 @@
 - name: Clone dotfiles
-  become_user: jacob
   git:
     repo: "https://github.com/JacobStephenson97/.dotfiles.git"
     dest: ~/.dotfiles
