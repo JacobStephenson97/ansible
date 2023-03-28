@@ -1,14 +1,9 @@
-- name: load ssh key
-  become_user: jacob
-  tags: personal-project
-  shell: |
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/github_com_ed25519
 - name: Reel Bot Project
   become_user: jacob
   ansible.builtin.git:
     repo: "git@github.com:JacobStephenson97/reel-bot.git"
-    bare: true
+    key_file: "~/.ssh/github_com_ed25519"
     dest: "{{ personal }}/reel-bot"
+    accept_newhostkey: true
   tags:
     - personal-project
