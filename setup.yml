@@ -1,8 +1,8 @@
 - hosts: localhost
   become: true
   vars: 
-    source_key: "{{lookup('env', 'HOME') }}/keys/.ssh/github_com_ed25519"
-    dest_key: "{{lookup('env', 'HOME') }}/.ssh/github_com_ed25519"
+    source_key: /home/jacob/keys/.ssh/github_com_ed25519
+    dest_key: /home/jacob/.ssh/github_com_ed25519
   tasks:
   - name: Install Basic Packages
     community.general.pacman:
