@@ -5,5 +5,5 @@
     dest: ~/.dotfiles
   tags: dotfiles
 - name: stow dotfiles
-  shell: rm .zshrc && cd .dotfiles && stow .
+  shell: rm ~/.zshrc && cd ~/.dotfiles && stow .
   tags: dotfiles
