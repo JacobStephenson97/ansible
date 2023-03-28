@@ -33,15 +33,7 @@
 #     become_user: jacob
 #     ansible.builtin.git: 
 #       repo: 'https://github.com/JacobStephenson97/ansible.git'
-#       dest: ~/
-  - name: Clone dotfiles
-    become_user: jacob
-    ansible.builtin.git: 
-      repo: 'https://github.com/JacobStephenson97/.dotfiles.git'
-      dest: ~/.dotfiles
-  - name: stow dotfiles
-    ansible.builtin.shell: cd .dotfiles && stow .
-    
+#       dest: ~/  
   - name: Clone yay
     become_user: jacob
     ansible.builtin.git: 
@@ -69,7 +61,13 @@
 #   - name: Get tmux
 #     become_user: jacob
 #     ansible.builtin.shell: curl -s https://raw.githubusercontent.com/JacobStephenson97/ansible/main/.tmux.conf > ~/.tmux.conf
-    
+  - name: Clone dotfiles
+    become_user: jacob
+    ansible.builtin.git: 
+      repo: 'https://github.com/JacobStephenson97/.dotfiles.git'
+      dest: ~/.dotfiles
+  - name: stow dotfiles
+    ansible.builtin.shell: cd .dotfiles && stow .
   - name: change default shell
     ansible.builtin.shell: chsh -s /bin/zsh jacob
     
