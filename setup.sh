@@ -13,4 +13,4 @@ passwd jacob
 
 su -c "git clone https://github.com/JacobStephenson97/ansible ~/setup" jacob
 
-su -c "ansible-playbook /setup/local.yml --ask-vault-pass --ask-become-pass" jacob
+su -c "ansible-playbook ~/setup/local.yml --ask-vault-pass --ask-become-pass" jacob
