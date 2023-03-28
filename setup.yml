@@ -26,9 +26,9 @@
         - figlet
         - tmux
         - stow
-  - name: Make bin/downloads
+  - name: Make folders
     become_user: jacob
-    ansible.builtin.shell: mkdir bin Downloads
+    ansible.builtin.shell: mkdir bin Downloads .dotfiles
 #   - name: Clone dotfiles
 #     become_user: jacob
 #     ansible.builtin.git: 
@@ -38,6 +38,7 @@
     become_user: jacob
     ansible.builtin.git: 
       repo: 'https://github.com/JacobStephenson97/.dotfiles.git'
+      dest: ~/.dotfiles
   - name: stow dotfiles
     ansible.builtin.shell: cd .dotfiles && stow .
     
