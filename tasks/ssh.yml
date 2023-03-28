@@ -1,7 +1,7 @@
 - name: Ensure .ssh directory exists.
   become_user: jacob
   file:
-    dest: "{{ dest_key | dirname }}"
+    dest: "{{ github_key }}"
     mode: 0700
     state: directory
   tags:
