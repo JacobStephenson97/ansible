@@ -6,6 +6,7 @@
       name:
         - zsh
         - github-cli
+        - openssh
         - fzf
         - pv
         - clang
