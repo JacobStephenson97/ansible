@@ -2,16 +2,17 @@
   vars:
     source_key: "{{ lookup('env', 'HOME') }}/setup/.ssh/github_com_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/github_com_ed25519"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
   tasks:
     - include: tasks/ssh.yml
     - include: tasks/git-setup.yml
     - include: tasks/packages.yml
     - include: tasks/zsh.yml
     - include: tasks/dotfiles.yml
+    - include: tasks/projects.yml
       # - include: tasks/node-setup.yml
       # - include: tasks/npm-packages.yml
       # - include: tasks/slack-setup.yml
-      # - include: tasks/personal-projects.yml
       # - include: tasks/nvim-setup.yml
       # - include: tasks/brave.yml
       # - include: tasks/debugger.yml

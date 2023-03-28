@@ -32,7 +32,7 @@
     - core
 
 - name: Make folders
-  ansible.builtin.shell: mkdir ~/bin ~/downloads ~/.dotfiles
+  ansible.builtin.shell: mkdir ~/bin ~/downloads ~/.dotfiles ~/personal ~/work
   ignore_errors: true
   tags:
     - core

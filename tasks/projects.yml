@@ -1,0 +1,7 @@
+- name: Reel Bot Project
+  ansible.builtin.git:
+    repo: "git@github.com:JacobStephenson97/reel-bot.git"
+    bare: true
+    dest: "{{ personal }}/reel-bot"
+  tags:
+    - personal-project
