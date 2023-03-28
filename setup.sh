@@ -11,6 +11,6 @@ echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 useradd -m -G wheel -s /bin/bash jacob
 passwd jacob
 
-su -c "curl -s https://raw.githubusercontent.com/JacobStephenson97/ansible/main/setup.yml >> /home/jacob/setup.yml" jacob
+su -c "git clone https://github.com/JacobStephenson97/ansible"
 
-ansible-playbook /home/jacob/setup.yml --ask-vault-pass
+su -c "ansible-playbook local.yml --ask-vault-pass --ask-become-pass" jacob
