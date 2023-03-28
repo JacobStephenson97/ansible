@@ -27,6 +27,8 @@
       - stow
       - vim
       - keychain
+      - cmake
+      - unzip
   tags:
     - packages
     - core

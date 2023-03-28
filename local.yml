@@ -10,10 +10,10 @@
     - include: tasks/zsh.yml
     - include: tasks/dotfiles.yml
     - include: tasks/projects.yml
+    - include: tasks/nvim-setup.yml
       # - include: tasks/node-setup.yml
       # - include: tasks/npm-packages.yml
       # - include: tasks/slack-setup.yml
-      # - include: tasks/nvim-setup.yml
       # - include: tasks/brave.yml
       # - include: tasks/debugger.yml
       # - include: tasks/productivity-tools.yml
