@@ -10,8 +10,8 @@
 - name: copy pub key
   become_user: jacob
   copy:
-    src: /home/jacob/keys/.ssh/
-    dest: /home/jacob/.ssh/
+    src: "{{ source_key }}"
+    dest: "{{ dest_key }}"
     mode: 0600
   tags:
     - ssh
