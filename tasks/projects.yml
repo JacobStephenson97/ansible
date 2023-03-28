@@ -1,8 +1,10 @@
 - name: load ssh key
+  become_user: jacob
   shell: |
     eval "$(ssh-agent -s)"
     "ssh-add {{ dest_key }}"
 - name: Reel Bot Project
+  become_user: jacob
   ansible.builtin.git:
     repo: "git@github.com:JacobStephenson97/reel-bot.git"
     bare: true
