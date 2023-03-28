@@ -38,10 +38,10 @@
     - core
 
 - name: Clone yay
-    become_user: jacob
-    ansible.builtin.git:
-      repo: 'https://aur.archlinux.org/yay.git'
-      dest: /home/jacob/yay
+  become_user: jacob
+  ansible.builtin.git:
+    repo: "https://aur.archlinux.org/yay.git"
+    dest: /home/jacob/yay
   tags: yay
 - name: Install yay
   become_user: jacob
