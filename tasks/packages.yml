@@ -37,16 +37,13 @@
   tags:
     - core
 
-- name: Clone yay from AUR
-  git:
-    repo: https://aur.archlinux.org/yay.git
-    dest: /home/jacob/yay
+- name: Clone yay
+    become_user: jacob
+    ansible.builtin.git:
+      repo: 'https://aur.archlinux.org/yay.git'
+      dest: /home/jacob/yay
   tags: yay
+- name: Install yay
   become_user: jacob
-
-- name: Build and install yay
-  shell: |
-    cd /home/jacob/yay
-    makepkg -si --noconfirm --needed --noprogressbar
-  become_user: jacob
+  ansible.builtin.shell: cd ~/yay && makepkg -si --noconfirm && rm -rf ~/yay
   tags: yay
