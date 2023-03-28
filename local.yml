@@ -1,6 +1,7 @@
 - hosts: localhost
   vars:
-    github_key: "{{ lookup('env', 'HOME') }}/.ssh/github_com_ed25519"
+    source_key: "{{ lookup('env', 'HOME') }}/setup/.ssh/github_com_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/github_com_ed25519"
   pre_tasks:
   tasks:
     - include: tasks/ssh.yml

@@ -1,7 +1,7 @@
 - name: Ensure .ssh directory exists.
   become_user: jacob
   file:
-    dest: "{{ github_key }}"
+    dest: "{{ dest_key | dirname }}"
     mode: 0700
     state: directory
   tags:
@@ -10,8 +10,8 @@
 - name: Install ssh key
   become_user: jacob
   copy:
-    src: "{{ github_key }}"
-    dest: "{{ github_key }}"
+    src: "{{ source_key }}"
+    dest: "{{ dest_key }}"
     mode: 0600
   tags:
     - ssh
