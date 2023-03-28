@@ -1,5 +1,6 @@
 - name: load ssh key
   shell: |
+    eval "$(ssh-agent -s)"
     "ssh-add {{ dest_key }}"
 - name: Reel Bot Project
   ansible.builtin.git:
