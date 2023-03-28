@@ -45,7 +45,9 @@
     - packages
     - core
 - name: Install yay
-  ansible.builtin.shell: cd ~/yay && makepkg -si && rm -rf ~/yay
+  become_user: jacob
+  become: true
+  ansible.builtin.shell: cd ~/yay && makepkg -Ssi && rm -rf ~/yay
   tags:
     - packages
     - core
