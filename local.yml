@@ -3,11 +3,21 @@
     source_key: "{{ lookup('env', 'HOME') }}/setup/.ssh/github_com_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/github_com_ed25519"
   tasks:
-    - include: tasks/ssh.yml
-    - include: tasks/git-setup.yml
-    - include: tasks/packages.yml
-    - include: tasks/zsh.yml
-    - include: tasks/dotfiles.yml
+  - name: Clone yay
+  become_user: jacob
+  ansible.builtin.git:
+    repo: "https://aur.archlinux.org/yay.git"
+    dest: /home/jacob/yay
+  tags: yay
+  - name: Install yay
+    become_user: jacob
+    ansible.builtin.shell: cd ~/yay && makepkg -si --noconfirm && rm -rf ~/yay
+    tags: yay
+  - include: tasks/ssh.yml
+  - include: tasks/git-setup.yml
+  - include: tasks/packages.yml
+  - include: tasks/zsh.yml
+  - include: tasks/dotfiles.yml
     # - include: tasks/node-setup.yml
     # - include: tasks/npm-packages.yml
     # - include: tasks/slack-setup.yml

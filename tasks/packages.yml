@@ -36,14 +36,3 @@
   ignore_errors: true
   tags:
     - core
-
-- name: Clone yay
-  become_user: jacob
-  ansible.builtin.git:
-    repo: "https://aur.archlinux.org/yay.git"
-    dest: /home/jacob/yay
-  tags: yay
-- name: Install yay
-  become_user: jacob
-  ansible.builtin.shell: cd ~/yay && makepkg -si --noconfirm && rm -rf ~/yay
-  tags: yay
