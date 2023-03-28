@@ -12,7 +12,9 @@ useradd -m -G wheel -s /bin/bash jacob
 passwd jacob
 
 su -c "git clone https://aur.archlinux.org/yay.git ~/yay" jacob
-su -c "cd ~/yay && makepkg -Ssi && rm -rf ~yay" jacob
+export BUILDDIR=/home/jacob/yay/build
+export PKGDEST=/home/jacob/yay/packages
+su -c "cd ~/yay && makepkg -si --noconfirm --needed && rm -rf ~yay" jacob
 
 
 su -c "git clone https://github.com/JacobStephenson97/ansible ~/setup" jacob
