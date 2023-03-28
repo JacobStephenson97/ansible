@@ -1,4 +1,6 @@
 - name: Install Basic Packages
+  become: true
+  become_user: root
   community.general.pacman:
     name:
       - zsh
@@ -28,13 +30,18 @@
   tags:
     - packages
     - core
+
 - name: Make folders
+  become: true
   become_user: jacob
   ansible.builtin.shell: mkdir bin Downloads .dotfiles
+  ignore_errors: true
   tags:
     - core
+
 - name: Clone yay
   become_user: jacob
+  become: true
   ansible.builtin.git:
     repo: "https://aur.archlinux.org/yay.git"
     dest: /home/jacob/yay
@@ -43,6 +50,7 @@
     - core
 - name: Install yay
   become_user: jacob
+  become: true
   ansible.builtin.shell: cd yay && makepkg -si --noconfirm && rm -rf ~/yay
   tags:
     - packages
