@@ -1,0 +1,9 @@
+- name: Clone dotfiles
+  become_user: jacob
+  git:
+    repo: "https://github.com/JacobStephenson97/.dotfiles.git"
+    dest: ~/.dotfiles
+  tags: dotfiles
+- name: stow dotfiles
+  shell: rm .zshrc && cd .dotfiles && stow .
+  tags: dotfiles

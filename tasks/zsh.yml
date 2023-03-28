@@ -1,0 +1,30 @@
+- name: Run oh-my-zsh install script
+  become_user: jacob
+  shell: source <(curl -fsSL http://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --noconfirm
+  tags: zsh
+
+- name: Install zsh-theme-powerlevel10k-git package
+  become_user: jacob
+  shell: yay -S --noconfirm zsh-theme-powerlevel10k-git
+  tags: zsh
+
+- name: Get auto-suggestions
+  become_user: jacob
+  git:
+    repo: "https://github.com/zsh-users/zsh-autosuggestions"
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  tags: zsh
+- name: Get Syntax Highlighting
+  become_user: jacob
+  git:
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  tags: zsh
+#May not be necessary
+- name: Export correct Term
+  shell: echo "export TERM=xterm-256color" >> .zshrc
+  tags: zsh
+
+- name: change default shell
+  shell: chsh -s /bin/zsh jacob
+  tags: zsh
