@@ -42,14 +42,24 @@
     tags:
     - ssh
   - name: Ensure .ssh directory exists.
-    become_user: root
+    become_user: jacob
     file:
       dest: "{{ dest_key | dirname }}"
       mode: 0700
       state: directory
     tags:
     - ssh
+    
+  - name: copy pub key
+    become_user: jacob
+    copy:
+      src: /home/jacob/keys/.ssh/github_com_ed25519.pub
+      dest: /home/jacob/.ssh/github_com_ed25519.pub
+      mode: 0600
+    tags: ssh
+    
   - name: Install ssh key
+    become_user: jacob
     copy:
       src: "{{ source_key }}"
       dest: "{{ dest_key }}"
@@ -57,6 +67,7 @@
     tags:
     - ssh
   - name: Set authorized key took from file
+    become_user: jacob
     authorized_key:
       user: jacob
       state: present
