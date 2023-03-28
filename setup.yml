@@ -25,20 +25,21 @@
         - lsd
         - figlet
         - tmux
+        - stow
   - name: Make bin/downloads
     become_user: jacob
     ansible.builtin.shell: mkdir bin Downloads
-  - name: Clone dotfiles
-    become_user: jacob
-    ansible.builtin.git: 
-      repo: 'https://github.com/JacobStephenson97/ansible.git'
-      dest: ~/
+#   - name: Clone dotfiles
+#     become_user: jacob
+#     ansible.builtin.git: 
+#       repo: 'https://github.com/JacobStephenson97/ansible.git'
+#       dest: ~/
   - name: Clone dotfiles
     become_user: jacob
     ansible.builtin.git: 
       repo: 'https://github.com/JacobStephenson97/.dotfiles.git'
-      dest: ~/
-  
+  - name: stow dotfiles
+    ansible.builtin.shell: cd .dotfiles && stow .
     
   - name: Clone yay
     become_user: jacob
