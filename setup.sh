@@ -2,6 +2,7 @@
 passwd
 pacman-key --init 
 pacman-key --populate
+pacman -Syy --noconfirm
 pacman -S --noconfirm archlinux-keyring 
 pacman -Syu --noconfirm
 pacman -S --needed --noconfirm base-devel git sudo ansible
