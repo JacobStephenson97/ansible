@@ -1,8 +1,9 @@
 - name: load ssh key
   become_user: jacob
+  tags: personal-project
   shell: |
     eval "$(ssh-agent -s)"
-    "ssh-add {{ dest_key }}"
+    ssh-add ~/.ssh/github_com_ed25519
 - name: Reel Bot Project
   become_user: jacob
   ansible.builtin.git:
