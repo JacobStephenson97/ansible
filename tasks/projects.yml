@@ -1,6 +1,6 @@
- name: load ssh key
+- name: load ssh key
   shell: |
-      "ssh-add {{ dest_key }}"
+    "ssh-add {{ dest_key }}"
 - name: Reel Bot Project
   ansible.builtin.git:
     repo: "git@github.com:JacobStephenson97/reel-bot.git"
