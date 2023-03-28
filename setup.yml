@@ -67,9 +67,9 @@
       repo: 'https://github.com/JacobStephenson97/.dotfiles.git'
       dest: ~/.dotfiles
   - name: stow dotfiles
-    ansible.builtin.shell: cd .dotfiles && stow .
+    shell: rm .zshrc && cd .dotfiles && stow .
   - name: change default shell
-    ansible.builtin.shell: chsh -s /bin/zsh jacob
+    shell: chsh -s /bin/zsh jacob
     
   - name: Get auto-suggestions
     become_user: jacob
