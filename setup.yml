@@ -29,6 +29,8 @@
         - figlet
         - tmux
         - stow
+        - vim
+        - keychain
         
   - name: Make folders
     become_user: jacob
