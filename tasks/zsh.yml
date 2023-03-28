@@ -4,7 +4,7 @@
   ignore_errors: true
 
 - name: Install zsh-theme-powerlevel10k-git package
-  shell: yay -S --noconfirm zsh-theme-powerlevel10k-git
+  shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
   tags: zsh
   ignore_errors: true
 
@@ -14,6 +14,7 @@
     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   tags: zsh
 - name: Get Syntax Highlighting
+  become_user: jacob
   git:
     repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
