@@ -6,4 +6,15 @@
     dest: "{{ personal }}/reel-bot"
     accept_newhostkey: true
   tags:
-    - personal-project
+    - personal
+    - project
+- name: Reel Bot Project
+  become_user: jacob
+  ansible.builtin.git:
+    repo: "git@github.com:crom-llc/crom-intranet.git"
+    key_file: "~/.ssh/github_com_ed25519"
+    dest: "~/work/crom-intranet"
+    accept_newhostkey: true
+  tags:
+    - work
+    - project
